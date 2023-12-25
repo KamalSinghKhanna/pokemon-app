@@ -26,7 +26,7 @@ const PokemonList = () => {
   }, []);
 
    const [filterList, setFilterList] = useState(items);
-console.log(filterList)
+// console.log(filterList)
 
  const handleSearch = (event) => {
    event.preventDefault();
@@ -41,7 +41,7 @@ console.log(filterList)
      (item) => item.name.toLowerCase().indexOf(searchValue) !== -1
    );
 
-   console.log(filteredValues); // Log the filtered values
+   
 
    setFilterList(filteredValues);
  };
