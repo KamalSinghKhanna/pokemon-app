@@ -8,46 +8,25 @@ export const useModal = () => {
 };
 
 export const ModalProvider = ({ children }) => {
-  const [pokemonDetail, setPokemonDetail] = useState({
-    name: "",
-    stats: [],
-    // Add other properties as needed
-  });
+
 
   const [isLoading, setIsLoading] = useState(true);
   const [showModal, setShowModal] = useState(false);
-  const [pokemonId, setPokemonId] = useState(null);
-  const [imageUrl, setImageUrl] = useState("");
+   const [pokemonId, setPokemonId] = useState(null); 
 
   // console.log(pokemonDetail);
 
-  const openModal = () => {
+  const openModal = (id) => {
+    setPokemonId(id);
     setShowModal(true);
   };
 
   const closeModal = () => {
+    setPokemonId(null);
     setShowModal(false);
   };
 
-  const fetchData = async () => {
-    if (pokemonId !== null) {
-      try {
-        const res = await fetch(
-          `https://pokeapi.co/api/v2/pokemon/${pokemonId}`
-        );
-        const data = await res.json();
-        setPokemonDetail(data);
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      } finally {
-        setIsLoading(false);
-      }
-    }
-  };
-
-  useEffect(() => {
-    fetchData();
-  }, [pokemonId]);
+ 
 
   return (
     <ModalContext.Provider
@@ -55,13 +34,10 @@ export const ModalProvider = ({ children }) => {
         showModal,
         openModal,
         closeModal,
-        setPokemonId,
-        pokemonId,
-        setImageUrl,
-        imageUrl,
-        fetchData,
-        pokemonDetail,
         isLoading,
+        setIsLoading,
+        pokemonId,
+        setPokemonId
       }}
     >
       {children}
