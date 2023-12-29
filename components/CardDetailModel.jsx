@@ -30,7 +30,7 @@ const CardDetailModel = memo(() => {
       {isLoading ? (
         <p>loading...</p>
       ) : (
-        <div className="flex flex-col items-center z-10 w-[90%] h-auto sm:w-3/4 sm:h-auto sm:px-5 pt-3 bg-gray-50 rounded-lg border border-gray-300">
+        <div className="flex flex-col items-center z-10 w-[90%] h-[90%] sm:w-3/4 sm:h-auto sm:px-5 pt-3 bg-gray-50 rounded-lg border border-gray-300">
           <div className="flex w-full justify-end text-gray-600 font-bold text-sm sm:hidden px-3 sm:px-0">
             <button
               onClick={closeModal}
@@ -41,13 +41,13 @@ const CardDetailModel = memo(() => {
           </div>
           <div className="flex flex-col justify-between w-full">
             <div className="flex flex-col w-full justify-around">
-              <div className="sm:flex-row flex flex-col items-start sm:gap-[10%] md:gap-[25%] sm:mb-0 mb-5 px-5 sm:px-0">
-                <div className="flex flex-col justify-center items-start gap-0 bg-gray-300 px-3 py-2 rounded-xl my-5 sm:my-0">
+              <div className="sm:flex-row flex flex-col sm:items-start sm:gap-[10%] md:gap-[25%] sm:mb-0 mb-5 px-5 sm:px-0">
+                <div className="flex flex-col justify-center items-start gap-0 bg-gray-300 px-3 py-2 rounded-xl my-2 sm:my-0">
                   <span className="text-gray-500 font-semibold">
                     <span className="text-gray-800 font-semibold">id:</span>
                     {pokemonDetail?.id}
                   </span>
-                  <h2 className="text-center text-3xl font-semibold text-gray-600">
+                  <h2 className="text-center text-xl sm:text-3xl font-semibold text-gray-600">
                     {pokemonDetail?.name}
                   </h2>
                   <div className="flex items-center">
@@ -72,7 +72,7 @@ const CardDetailModel = memo(() => {
                   alt={pokemonDetail?.name}
                   width={200}
                   height={200}
-                  className="w-60 h-60 cursor-pointer"
+                  className="w-40 h-40 sm:w-60 sm:h-60 cursor-pointer"
                   loading="lazy"
                 />
               </div>
