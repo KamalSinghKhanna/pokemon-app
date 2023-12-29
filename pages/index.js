@@ -8,7 +8,6 @@ import Loader from "@/components/Loader";
 
 const Home = () => {
   const { setIsLoading } = useModal();
-  const [data, setData] = useState([]);
   const [pokemonData, setPokemonData] = useState([]);
   const [searchData, setSearchData] = useState([]);
 
@@ -17,8 +16,6 @@ const Home = () => {
       const response = await axios.get(
         `https://pokeapi.co/api/v2/pokemon/?limit=100&offset=0`
       );
-
-      setData(response.data.results);
 
       const detailsPromises = response.data.results.map((item) =>
         axios.get(item.url)
@@ -58,7 +55,7 @@ const Home = () => {
             <b>Yay! You have seen it all</b>
           </p>
         }
-        className="flex flex-wrap gap-6 pokemonData-center justify-center py-10"
+        className="flex flex-col items-center sm:flex-wrap gap-6 sm:flex-row justify-center py-10"
       >
         {searchData.length > 0
           ? searchData.map((pokemon, i) => (

@@ -1,4 +1,3 @@
-// PokemonCard.js
 import { useModal } from "@/context/ModalContext";
 import CardDetailModel from "./CardDetailModel";
 import { useState, useEffect, memo } from "react";

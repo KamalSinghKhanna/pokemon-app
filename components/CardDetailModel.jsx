@@ -2,7 +2,6 @@ import { useModal } from "@/context/ModalContext";
 import Image from "next/image";
 import { memo } from "react";
 const CardDetailModel = memo(() => {
-  // console.log(pokemonId)
   const { closeModal, isLoading, setIsLoading, pokemonId, pokemonDetail } =
     useModal();
 
@@ -14,7 +13,7 @@ const CardDetailModel = memo(() => {
   const calculateWidth = (baseStat) => {
     const maxStatValue = 255; // Assuming a maximum stat value
     const maxWidthPercentage = 100; // Maximum width percentage
-    const scalingFactor = 2; // Adjust this factor to increase/decrease the width
+    const scalingFactor = 2; // can adjust this factor to increase/decrease the width
 
     const widthPercentage =
       (baseStat / maxStatValue) * maxWidthPercentage * scalingFactor;
@@ -78,9 +77,7 @@ const CardDetailModel = memo(() => {
               </div>
               <div className="flex justify-between w-full gap-6">
                 <div className="w-full pl-3 sm:px-4 lg:w-4/12">
-                  <p className="text-xl font-bold text-gray-900 mb-3">
-                    stats:
-                  </p>
+                  <p className="text-xl font-bold text-gray-900 mb-3">stats:</p>
                   {pokemonDetail?.stats.map((stat, index) => (
                     <div key={index} className="mb-3 flex items-center gap-4">
                       <span className="text-sm font-bold text-gray-800 uppercase">
@@ -98,9 +95,7 @@ const CardDetailModel = memo(() => {
                   ))}
                 </div>
                 <div className="w-auto  pr-2 sm:px-4 lg:w-4/12 ">
-                  <p className="text-xl font-bold text-gray-900 mb-3">
-                    moves:
-                  </p>
+                  <p className="text-xl font-bold text-gray-900 mb-3">moves:</p>
                   {pokemonDetail?.moves.map(
                     (move, index) =>
                       index <= 6 && (

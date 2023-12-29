@@ -25,7 +25,6 @@ const SearchBar = ({
     );
 
     setSearchData(searchedValues);
-    console.log("SearchResult", searchedValues);
   };
 
   const handleInputChange = (event) => {
