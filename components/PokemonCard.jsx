@@ -7,6 +7,7 @@ const PokemonCard = memo(({ pokemon, index }) => {
 
  const getBackgroundColor = (index) => {
    const colors = ["blue", "green", "yellow", "red", "cyan"];
+   console.log(colors[index % colors.length]);
    return colors[index % colors.length];
  };
  const handleCardClick = () => {
