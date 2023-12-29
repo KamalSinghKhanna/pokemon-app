@@ -7,10 +7,10 @@ const PokemonCard = memo(({ pokemon, index }) => {
 
  const getBackgroundColor = (index) => {
     const colors = [
-      "rgb(59, 130, 246)",
-      "rgb(95, 245, 90)",
-      "rgb(250, 247, 60)",
-      "rgb(250, 78, 78)",
+      "rgb(77, 144, 252)",
+      "rgb(121, 248, 116)",
+      "rgb(250, 247, 95)",
+      "rgb(252, 91, 91)",
       "rgb(76, 185, 231)",
     ];
    return colors[index % colors.length];
@@ -25,7 +25,7 @@ const PokemonCard = memo(({ pokemon, index }) => {
       {showModal && <CardDetailModel />}
       <div
         onClick={handleCardClick}
-        className="w-64 flex flex-col bg-gray-200 rounded-lg p-4 m-2 cursor-pointer transform transition duration-300 hover:scale-110"
+        className="w-full sm:w-64 flex flex-col bg-gray-200 rounded-lg p-4 m-2 cursor-pointer transform transition duration-300 hover:scale-110"
       >
         <div
           className="rounded-lg h-40"

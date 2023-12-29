@@ -59,12 +59,12 @@ const Home = () => {
       >
         {searchData.length > 0
           ? searchData.map((pokemon, i) => (
-              <div key={i}>
+              <div key={i} className="w-4/5 sm:w-64">
                 <PokemonCard pokemon={pokemon} index={i} />
               </div>
             ))
           : pokemonData.map((pokemon, i) => (
-              <div key={i}>
+              <div key={i} className="w-4/5 sm:w-64">
                 <PokemonCard pokemon={pokemon} index={i} />
               </div>
             ))}
