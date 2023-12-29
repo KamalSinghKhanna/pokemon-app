@@ -60,12 +60,12 @@ const Home = () => {
         {searchData.length > 0
           ? searchData.map((pokemon, i) => (
               <div key={i}>
-                <PokemonCard pokemon={pokemon} />
+                <PokemonCard pokemon={pokemon} index={i} />
               </div>
             ))
           : pokemonData.map((pokemon, i) => (
               <div key={i}>
-                <PokemonCard pokemon={pokemon} />
+                <PokemonCard pokemon={pokemon} index={i} />
               </div>
             ))}
       </InfiniteScroll>

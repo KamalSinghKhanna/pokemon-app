@@ -2,10 +2,13 @@ import { useModal } from "@/context/ModalContext";
 import CardDetailModel from "./CardDetailModel";
 import { useState, useEffect, memo } from "react";
 
-const PokemonCard = memo(({ pokemon }) => {
+const PokemonCard = memo(({ pokemon, index }) => {
   const { openModal, showModal } = useModal();
 
- 
+ const getBackgroundColor = (index) => {
+   const colors = ["blue", "green", "yellow", "red", "cyan"];
+   return colors[index % colors.length];
+ };
  const handleCardClick = () => {
    openModal(pokemon.id, pokemon); // Passing the Pokemon data to openModal
  };
@@ -19,7 +22,8 @@ const PokemonCard = memo(({ pokemon }) => {
         className="w-64 flex flex-col bg-gray-200 rounded-lg p-4 m-2 cursor-pointer transform transition duration-300 hover:scale-110"
       >
         <div
-          className="h-40 bg-gray-400 rounded-lg"
+          // className=" bg-gray-400 "
+          className={`bg-${getBackgroundColor(index)}-500 rounded-lg h-40`}
           style={{
             backgroundImage: `url(https://unpkg.com/pokeapi-sprites@2.0.2/sprites/pokemon/other/dream-world/${pokemon.id}.svg)`,
             backgroundRepeat: "no-repeat",
