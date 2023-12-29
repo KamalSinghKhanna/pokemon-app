@@ -13,11 +13,12 @@ export const ModalProvider = ({ children }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [showModal, setShowModal] = useState(false);
    const [pokemonId, setPokemonId] = useState(null); 
-
+  const [pokemonDetail, setPokemonDetail] = useState(null);
   // console.log(pokemonDetail);
 
-  const openModal = (id) => {
+  const openModal = (id, pokemon) => {
     setPokemonId(id);
+      setPokemonDetail(pokemon);
     setShowModal(true);
   };
 
@@ -37,7 +38,9 @@ export const ModalProvider = ({ children }) => {
         isLoading,
         setIsLoading,
         pokemonId,
-        setPokemonId
+        setPokemonId,
+        pokemonDetail,
+        setPokemonDetail
       }}
     >
       {children}

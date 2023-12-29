@@ -4,15 +4,13 @@ import axios from "axios";
 import SearchBar from "@/components/SearchBar";
 import PokemonCard from "@/components/PokemonCard";
 import { useModal } from "@/context/ModalContext";
-
-// ... (other imports and code)
+import Loader from "@/components/Loader";
 
 const Home = () => {
   const { setIsLoading } = useModal();
   const [data, setData] = useState([]);
   const [pokemonData, setPokemonData] = useState([]);
   const [searchData, setSearchData] = useState([]);
-  console.log("API Response:", pokemonData);
 
   const fetchData = async () => {
     try {
@@ -28,7 +26,7 @@ const Home = () => {
 
       const detailsResponses = await Promise.all(detailsPromises);
       const detailsData = detailsResponses.map((response) => response.data);
-      setPokemonData((prevData) => [...prevData, ...detailsData]);
+      setPokemonData(detailsData);
     } catch (error) {
       console.error("Error fetching data:", error.message);
     } finally {
@@ -49,10 +47,12 @@ const Home = () => {
         setPokemonData={setPokemonData}
       />
       <InfiniteScroll
-        dataLength={searchData.length > 0 ? searchData.length : pokemonData.length}
+        dataLength={
+          searchData.length > 0 ? searchData.length : pokemonData.length
+        }
         next={fetchData}
         hasMore={true}
-        loader={<h4 className="text-center text-black">Loading...</h4>}
+        loader={<Loader />}
         endMessage={
           <p className="text-center text-black">
             <b>Yay! You have seen it all</b>

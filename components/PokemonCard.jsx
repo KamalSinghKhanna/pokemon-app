@@ -1,14 +1,14 @@
 // PokemonCard.js
 import { useModal } from "@/context/ModalContext";
 import CardDetailModel from "./CardDetailModel";
-import { useState, useEffect } from "react";
+import { useState, useEffect, memo } from "react";
 
-const PokemonCard = ({ pokemon }) => {
+const PokemonCard = memo(({ pokemon }) => {
   const { openModal, showModal } = useModal();
 
  
  const handleCardClick = () => {
-   openModal(pokemon.id); // Passing the Pokemon ID to openModal
+   openModal(pokemon.id, pokemon); // Passing the Pokemon data to openModal
  };
 
 
@@ -52,6 +52,9 @@ const PokemonCard = ({ pokemon }) => {
       </div>
     </>
   );
-};
+}
+);
 
 export default PokemonCard;
+
+PokemonCard.displayName = "PokemonCard";
