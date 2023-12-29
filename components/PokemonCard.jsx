@@ -6,8 +6,13 @@ const PokemonCard = memo(({ pokemon, index }) => {
   const { openModal, showModal } = useModal();
 
  const getBackgroundColor = (index) => {
-   const colors = ["blue", "green", "yellow", "red", "cyan"];
-   console.log(colors[index % colors.length]);
+    const colors = [
+      "rgb(59, 130, 246)",
+      "rgb(95, 245, 90)",
+      "rgb(250, 247, 60)",
+      "rgb(250, 78, 78)",
+      "rgb(76, 185, 231)",
+    ];
    return colors[index % colors.length];
  };
  const handleCardClick = () => {
@@ -23,12 +28,13 @@ const PokemonCard = memo(({ pokemon, index }) => {
         className="w-64 flex flex-col bg-gray-200 rounded-lg p-4 m-2 cursor-pointer transform transition duration-300 hover:scale-110"
       >
         <div
-          className={`bg-${getBackgroundColor(index)}-500 rounded-lg h-40`}
+          className="rounded-lg h-40"
           style={{
             backgroundImage: `url(https://unpkg.com/pokeapi-sprites@2.0.2/sprites/pokemon/other/dream-world/${pokemon.id}.svg)`,
             backgroundRepeat: "no-repeat",
             backgroundSize: "contain",
             backgroundPosition: "center",
+            backgroundColor: `${getBackgroundColor(index)}`,
           }}
         ></div>
         <div className="flex flex-col items-start mt-4">

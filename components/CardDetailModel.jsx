@@ -6,7 +6,13 @@ const CardDetailModel = memo(() => {
     useModal();
 
   const getBackgroundColor = (index) => {
-    const colors = ["blue", "green", "yellow", "red", "cyan"];
+     const colors = [
+       "rgb(59, 130, 246)",
+       "rgb(95, 245, 90)",
+       "rgb(250, 247, 60)",
+       "rgb(250, 78, 78)",
+       "rgb(76, 185, 231)",
+     ];
     return colors[index % colors.length];
   };
 
@@ -85,10 +91,11 @@ const CardDetailModel = memo(() => {
                       </span>
                       <div className="bg-gray-300 dark:bg-dark-3 relative h-2.5 w-full rounded-2xl">
                         <div
-                          className={`bg-${getBackgroundColor(
-                            index
-                          )}-500 absolute top-0 left-0 h-full rounded-2xl`}
-                          style={{ width: calculateWidth(stat.base_stat) }}
+                          className=" absolute top-0 left-0 h-full rounded-2xl"
+                          style={{
+                            width: calculateWidth(stat.base_stat),
+                            backgroundColor: `${getBackgroundColor(index)}`,
+                          }}
                         ></div>
                       </div>
                     </div>
@@ -101,11 +108,12 @@ const CardDetailModel = memo(() => {
                       index <= 6 && (
                         <div
                           key={index}
-                          className={`bg-${getBackgroundColor(
-                            index
-                          )}-500 mb-3 flex justify-center items-start gap-4 bg-opacity-70  rounded-full w-32 sm:w-full`}
+                          className="mb-3 flex justify-center items-start gap-4 rounded-full w-32 sm:w-full"
+                          style={{
+                            backgroundColor: `${getBackgroundColor(index)}`,
+                          }}
                         >
-                          <span className="text-sm font-bold text-gray-900 uppercase">
+                          <span className="text-sm font-bold text-gray-100 uppercase">
                             {move.move.name}
                           </span>
                         </div>
